@@ -10,26 +10,26 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class MyForm implements ActionListener {
 
-    private JFrame myFrame;
-    private Container container;
-    private Date birthDay;
-    private JLabel title;
-    private JLabel dayLabel;
-    private JLabel monthLabel;
-    private JLabel yearLabel;
-    private JLabel resultLabel;
+    private final JFrame myFrame;
+    private final Container container;
+    //private  Date birthDay;
+    private final JLabel title;
+    private final JLabel dayLabel;
+    private final JLabel monthLabel;
+    private final JLabel yearLabel;
+    private final JLabel resultLabel;
 
-    private JComboBox day;
-    private JComboBox month;
-    private JComboBox year;
-    private JButton calcButton;
-    private JButton resetButton;
-    private JTextField firstName;
+    private final JComboBox day;
+    private final JComboBox month;
+    private final JComboBox year;
+    private final JButton calcButton;
+    private final JButton resetButton;
+    private final JTextField firstName;
 
     private Date birthDate;
     private Date today;
-    private SimpleDateFormat dol;
-    private String pattern = "dd-MMM-yyyy";
+    private final SimpleDateFormat dol;
+    private final String pattern = "dd-MMM-yyyy";
     private String birDat = null;
     private long daysOfLife = 0;
     private long diffInTime=0;
@@ -91,7 +91,7 @@ private String years[] =
         container.add(firstName);
 
         title = new JLabel();
-        title.setText("Program calculating how many years you are alive");
+        title.setText("Program calculating how many hours you are alive");
         title.setSize(420,20);
         title.setLocation(100,20);
         title.setFont(new Font("Arial", Font.BOLD, 14));
@@ -143,8 +143,8 @@ private String years[] =
         container.add(resetButton);
 
         resultLabel = new JLabel();
-        resultLabel.setSize(500,20);
-        resultLabel.setLocation(120,260);
+        resultLabel.setSize(600,20);
+        resultLabel.setLocation(100,260);
         resultLabel.setFont(new Font("Arial", Font.BOLD, 20));
         resultLabel.setVisible(false);
         container.add(resultLabel);
@@ -167,7 +167,7 @@ private String years[] =
             diffInTime = today.getTime() - birthDate.getTime();
             daysOfLife = (diffInTime / (1000 * 60 * 60 * 24));
             System.out.println(birthDate);
-            resultLabel.setText(firstName.getText() + " ,number of days alive is : " + Long.toString(daysOfLife));
+            resultLabel.setText(firstName.getText() + " ,your number of days alive is : " + Long.toString(daysOfLife));
             resultLabel.setVisible(true);
         }else {
             myFrame.dispose();

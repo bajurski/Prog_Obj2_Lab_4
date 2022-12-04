@@ -91,9 +91,9 @@ private String years[] =
         container.add(firstName);
 
         title = new JLabel();
-        title.setText("Program calculating how many hours you are alive");
+        title.setText("Program calculating how many days you are alive");
         title.setSize(420,20);
-        title.setLocation(100,20);
+        title.setLocation(150,20);
         title.setFont(new Font("Arial", Font.BOLD, 14));
         container.add(title);
 

@@ -24,6 +24,7 @@ public class MyForm implements ActionListener {
     private JComboBox year;
     private JButton calcButton;
     private JButton resetButton;
+    private JTextField firstName;
 
     private Date birthDate;
     private Date today;
@@ -75,7 +76,7 @@ private String years[] =
 
     public MyForm() throws ParseException {
         myFrame = new JFrame("How many years");
-        myFrame.setBounds(300, 90, 600, 300);
+        myFrame.setBounds(300, 90, 700, 350);
         myFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         myFrame.setResizable(false);
 
@@ -83,61 +84,67 @@ private String years[] =
         container.setBackground(Color.gray);
         container.setLayout(null);
 
+        firstName = new JTextField();
+        firstName.setFont(new Font("Arial", Font.BOLD, 20));
+        firstName.setSize(130,30);
+        firstName.setLocation(250,100);
+        container.add(firstName);
+
         title = new JLabel();
         title.setText("Program calculating how many years you are alive");
         title.setSize(420,20);
-        title.setLocation(100,50);
+        title.setLocation(100,20);
         title.setFont(new Font("Arial", Font.BOLD, 14));
         container.add(title);
 
         dayLabel = new JLabel();
         dayLabel.setText("Day");
         dayLabel.setSize(60,20);
-        dayLabel.setLocation(160,130);
+        dayLabel.setLocation(160,180);
         container.add(dayLabel);
 
         monthLabel = new JLabel();
         monthLabel.setText("Month");
         monthLabel.setSize(60,20);
-        monthLabel.setLocation(220,130);
+        monthLabel.setLocation(220,180);
         container.add(monthLabel);
 
         yearLabel = new JLabel();
         yearLabel.setText("Year");
         yearLabel.setSize(60,20);
-        yearLabel.setLocation(290,130);
+        yearLabel.setLocation(290,180);
         container.add(yearLabel);
 
         day = new JComboBox(days);
         day.setSize(50,20);
-        day.setLocation(150,150);
+        day.setLocation(150,200);
         container.add(day);
 
         month = new JComboBox(months);
         month.setSize(60,20);
-        month.setLocation(210,150);
+        month.setLocation(210,200);
         container.add(month);
 
         year = new JComboBox(years);
         year.setSize(60,20);
-        year.setLocation(280,150);
+        year.setLocation(280,200);
         container.add(year);
 
         calcButton = new JButton("Calc");
         calcButton.setSize(100,40);
-        calcButton.setLocation(360,140);
+        calcButton.setLocation(360,190);
         calcButton.addActionListener(this);
         container.add(calcButton);
 
         resetButton = new JButton("Reset");
         resetButton.setSize(100,40);
-        resetButton.setLocation(470,140);
+        resetButton.setLocation(470,190);
         resetButton.addActionListener(this);
         container.add(resetButton);
 
         resultLabel = new JLabel();
         resultLabel.setSize(500,20);
-        resultLabel.setLocation(120,210);
+        resultLabel.setLocation(120,260);
         resultLabel.setFont(new Font("Arial", Font.BOLD, 20));
         resultLabel.setVisible(false);
         container.add(resultLabel);
@@ -160,7 +167,7 @@ private String years[] =
             diffInTime = today.getTime() - birthDate.getTime();
             daysOfLife = (diffInTime / (1000 * 60 * 60 * 24));
             System.out.println(birthDate);
-            resultLabel.setText("Number of days alive : " + Long.toString(daysOfLife));
+            resultLabel.setText(firstName.getText() + " ,number of days alive is : " + Long.toString(daysOfLife));
             resultLabel.setVisible(true);
         }else {
             myFrame.dispose();
